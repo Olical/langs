@@ -23,10 +23,27 @@ module ActsAsCsv
       end
     end
 
+    def each(&block)
+      @csv_contents.each do |row|
+        block.call(CsvRow.new(@headers, row))
+      end
+    end
+
     attr_accessor :headers, :csv_contents
     def initialize
       read
     end
+  end
+end
+
+class CsvRow
+  def initialize(headers, row)
+    @headers = headers
+    @row = row
+  end
+
+  def method_missing(name)
+    @row[@headers.find_index(name.to_s)]
   end
 end
 
