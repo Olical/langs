@@ -2,6 +2,21 @@
 
 My workings for both of the ["7 languages in 7 weeks" books][books]. I'm also planning to use each of these languages in [my brainfucks menagerie][brainfucks].
 
+ * [X] Ruby
+ * [ ] Io
+ * [ ] Prolog
+ * [ ] Scala
+ * [ ] Erlang
+ * [ ] Clojure
+ * [ ] Haskell
+ * [ ] Lua
+ * [ ] Factor
+ * [ ] Elm
+ * [ ] Elixir
+ * [ ] Julia
+ * [ ] miniKanren
+ * [ ] Idris
+
 ## Unlicenced
 
 Find the full [unlicense][] in the `UNLICENSE` file, but here's a snippet.
