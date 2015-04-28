@@ -18,8 +18,8 @@ Multilist get := method(x, y,
   self at(y) at(x)
 )
 
-2DList transpose := method(
-  res := 2DList clone
+Multilist transpose := method(
+  res := Multilist clone
   res dim(self originalY, self originalX)
   for(y, 0, originalY - 1,
     for(x, 0, originalX - 1,
@@ -29,9 +29,20 @@ Multilist get := method(x, y,
   res
 )
 
-test := 2DList clone
+test := Multilist clone
 test dim(5, 10)
 test set(2, 8, "HI!")
 test get(2, 8) println
 transposed := test transpose
 "test(2, 8) == transposed(8, 2): #{test get(2, 8) == transposed get(8, 2)}" interpolate println
+
+f := File with("mlist.out")
+f remove
+f openForUpdating
+f write(test serialized)
+f close
+
+test := Multilist clone
+test empty
+test union(doFile("mlist.out"))
+test get(2, 8) println
