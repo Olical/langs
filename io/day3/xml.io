@@ -3,14 +3,22 @@
 // Add attributes. If the first argument is a map, use it.
 // Need to add curly brace parser for that map too.
 
+curlyBrackets := method(
+  r := Map clone
+  call message arguments foreach(arg,
+    r doMessage(arg)
+  )
+  r
+)
+
 Builder := Object clone
 Builder forward := method(
   writeln("<", call message name, ">")
   call message arguments foreach(arg,
     content := self doMessage(arg)
     if(content type == "Sequence", writeln(content))
-    writeln("</", call message name, ">")
   )
+  writeln("</", call message name, ">")
 )
 
 Builder ul(
