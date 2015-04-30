@@ -20,16 +20,23 @@ Builder indent := method(n,
   "    " repeated(n)
 )
 
+Builder paramsAsSeq := method(params,
+  params map(key, value, " #{key}=\"#{value}\"" interpolate) join
+)
+
 Builder forward := method(
   args := call message arguments
+  firstArg := args first
+
   params := {}
+
   depth := call message getSlot("depth")
   if(depth == nil, depth = 0)
 
   if(args first type == "Number", depth = args removeFirst)
-  if(args first type == "Map", params = args removeFirst clone)
+  if(firstArg name == "curlyBrackets", params = doMessage(firstArg); args removeFirst)
 
-  writeln(indent(depth), "<", call message name, ">")
+  writeln(indent(depth), "<", call message name, paramsAsSeq(params), ">")
 
   args foreach(arg,
     arg depth := depth + 1
@@ -48,7 +55,7 @@ Builder ul(
     )
   ),
   li("Lua"),
-  li("JavaScript",
+  li({ atPut("style", "color:red"), atPut("bad", "yep") }, "JavaScript",
     ul(
       li("Ewww."),
       li("Sucks in multiple ways."),
