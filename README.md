@@ -1,9 +1,9 @@
 # Langs
 
-My workings for both of the ["7 languages in 7 weeks" books][books]. I'm also planning to use each of these languages in [my brainfucks menagerie][brainfucks].
+My workings for both of the ["7 languages in 7 weeks" books][books]. I'm also planning to use each of these languages in [my brainfucks menagerie][brainfucks]. I'm writing about my experiences in brief on [my blog][blog].
 
  * [X] Ruby
- * [ ] Io
+ * [X] Io
  * [ ] Prolog
  * [ ] Scala
  * [ ] Erlang
@@ -30,3 +30,4 @@ Do what you want. Learn as much as you can. Unlicense more software.
 [books]: https://pragprog.com/book/btlang/seven-languages-in-seven-weeks
 [brainfucks]: https://github.com/Wolfy87/brainfucks
 [unlicense]: http://unlicense.org/
+[blog]: http://oli.me.uk/category/langs/
