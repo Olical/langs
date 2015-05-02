@@ -1,4 +1,3 @@
 minimum([A], A).
-minimum([First,Second|Tail], List) :-
-    (First =< Second, Head is First; Second < First, Head is Second),
-    minimum([Head|Tail], List).
+minimum([A, B], Min) :- (A =< B, Min is A; B < A, Min is B).
+minimum([A, B|Tail], List) :- minimum([A, B], Min), minimum([Min|Tail], List).
