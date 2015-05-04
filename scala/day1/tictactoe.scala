@@ -1,19 +1,71 @@
 class Board(val board: List[Char]) {
-  val width = 3
+  val size = 3
+  val indexes = List.range(0, 3)
 
   def rows(): List[List[Char]] = {
-    board.grouped(width).toList
+    board.grouped(size).toList
   }
 
   def columns(): List[List[Char]] = {
-    board.groupBy(_._1 % width).values.toList
+    for { x <- indexes } yield {
+      for { y <- indexes } yield { get(x, y) }
+    }
+  }
+
+  // I know this one could probably be better.
+  // My knowledge of for comprehensions is rusty.
+  def diagonals(): List[List[Char]] = {
+    List(
+      for {
+        xy <- indexes
+      } yield {
+        get(xy, xy)
+      },
+      for {
+        xy <- indexes
+      } yield {
+        get((size - 1) - xy, xy)
+      }
+    )
+  }
+
+  def lines(): List[List[Char]] = {
+    // Probably could have just used a good for.
+    // All x the same, all y the same and all xy the same / inverse for other diagonal.
+    // Yeah, pretty sure there's a really elegant way to get these lines.
+    // Just wanted to play with the language so it's verbose.
+    // YOU'RE NOT MY SUPERVISOR.
+    rows ++ columns ++ diagonals
+  }
+
+  def makeLine(n: Char): List[Char] = {
+    List.fill(size)(n)
   }
 
   def announce() {
-    println("shrug")
+    // No winner: Still blank places. (_)
+    // X / O wins if there's a line.
+    // Draw if all are full and there's no line.
+    val lines = this.lines
+    val xLine = makeLine('X')
+    val oLine = makeLine('O')
+    val hasBlanks = lines.flatten.find(_ == '_').isEmpty == false
+
+    if (lines.find(_.sameElements(xLine)).isEmpty == false) {
+      println("X wins!")
+    }
+    else if (lines.find(_.sameElements(oLine)).isEmpty == false) {
+      println("O wins!")
+    }
+    else if (hasBlanks) {
+      println("Still playing!")
+    }
+    else if (!hasBlanks) {
+      println("It's a draw!")
+    }
   }
 
-  def get(x: Int, y: Int) = board(width * y + x)
+  def get(x: Int, y: Int) = board(size * y + x)
 }
 
 println("No winner?")
@@ -55,4 +107,3 @@ val game = new Board(List(
   'X', 'O', 'O'
 ))
 game.announce
-println(game.columns)
