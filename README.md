@@ -4,8 +4,8 @@ My workings for both of the ["7 languages in 7 weeks" books][books]. I'm also pl
 
  * [X] Ruby
  * [X] Io
- * [ ] Prolog
- * [ ] Scala
+ * [X] Prolog
+ * [X] Scala
  * [ ] Erlang
  * [ ] Clojure
  * [ ] Haskell
