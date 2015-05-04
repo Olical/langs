@@ -1,5 +1,7 @@
 def strslen(strs: List[String]): Int = {
-  strs.map(_.length).foldLeft(0)((a, b) => a + b)
+  (0 /: strs) {
+    (sum, i) => sum + i.length
+  }
 }
 
 println(strslen(List(
