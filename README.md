@@ -6,7 +6,7 @@ My workings for both of the ["7 languages in 7 weeks" books][books]. I'm also pl
  * [X] Io
  * [X] Prolog
  * [X] Scala
- * [ ] Erlang
+ * [X] Erlang
  * [ ] Clojure
  * [ ] Haskell
  * [ ] Lua
