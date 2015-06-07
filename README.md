@@ -2,13 +2,13 @@
 
 My workings for the ["7 languages in 7 weeks" book][book]. I'm also planning to use each of these languages in [my brainfucks menagerie][brainfucks]. I'm writing about my experiences in brief on [my blog][blog].
 
- * [X] Ruby
- * [X] Io
- * [X] Prolog
- * [X] Scala
- * [X] Erlang
- * [X] Clojure
- * [ ] Haskell
+ * [X] Ruby (magic, magic everywhere. Not in a good way)
+ * [X] Io (like JavaScript, but with even less features / docs, I really wanted to like Io)
+ * [X] Prolog (wow, logic programming is cool)
+ * [X] Scala (still don't particularly like it, even after weeks of using it)
+ * [X] Erlang (Elixir or LFE seem like better options)
+ * [X] Clojure (still my favourite by a long way <3)
+ * [X] Haskell (sort of, I ran out of time / patience)
 
 ## Unlicenced
 
